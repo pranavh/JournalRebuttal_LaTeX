@@ -1,0 +1,100 @@
+\documentclass[12pt]{journalrebuttal}
+\title{A LaTeX class to create rebuttal documents for journal reviews}
+\author{Pranav Hosangadi}
+\journal{Journal Name}
+\manuscriptid{0000-0000-0000}
+
+\usepackage{verbatim}
+
+%% You can define Note commands using the \ColorNote command 
+%% provided in the class. 
+\newcommand{\PHNote}[1]{\ColorNote{red}{PH}{#1}}
+
+
+\begin{document}
+%\pagenumbering{arabic}
+\maketitle
+
+The JournalRebuttal class extends the \LaTeX~\verb|article| class to include environments and commands that assist in preparing rebuttal documents to reviews received for journal submissions. 
+
+\vspace{0.5cm}
+\makerule
+\section*{Overview}
+The class provides the following commands and environments:
+
+\begin{enumerate}
+    \item \verb|\journal{name}| Sets the name of the journal to print in the title
+    \item \verb|\printjournal| Prints the name of thr journal
+    \item \verb|\manuscriptid{id}| Sets the manuscript ID provided for the submission
+    \item \verb|\printmanuscriptid| Prints the manuscript ID
+    \item \verb|\nextreviewer| Increments the reviewer counter by one. 
+    \item \verb|\begin{revcomment}...\end{revcomment}| Increments the comment counter by one and prints the contents of the environment with formatting. Automatically assigns a label for cross-referencing using the reviewer number and comment number. See \cref{resp:1.1}
+    \item \verb|\begin{response}...\end{response}| Prints the contents of the environment formatted as a response to the previous \verb|revcomment| item.
+    \item \verb|\ColorNote{color}{initials}{note}| Creates a colored note prefixed with the given initials. 
+    \item \verb|\makerule| Creates a horizontal rule.
+\end{enumerate}
+
+Nam sit amet molestie odio. Praesent odio dui, elementum nec eleifend a, vehicula non quam. Nulla blandit aliquam augue et molestie. In interdum nulla non urna posuere, non placerat diam porta. Aliquam nec purus et nibh tempus ullamcorper sit amet ac eros. Integer convallis, ex eu tincidunt blandit, libero quam maximus risus, a consequat urna dolor eu augue. Fusce quam enim, iaculis fringilla libero eget, ullamcorper accumsan risus. Quisque ullamcorper libero nec nulla feugiat, ut eleifend diam imperdiet. Sed auctor tempor vehicula. Sed fringilla lacus libero, a commodo arcu efficitur vitae.
+
+\nextreviewer
+\begin{revcomment}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vitae enim dui. 
+\end{revcomment}
+\begin{response}
+\PHNote{Here is an example of an author note.} 
+
+Comments created using the \verb|revcomment| environment are automatically given the label with the format \verb|\label[response]{resp:x.y}|, where x is the reviewer number and y is the comment number. You can refer to these labels using the \verb|\ref| or  \verb|\cref| commands. 
+This class definition pre-configures the \verb|cleveref| package with names for the \verb|response| label type.
+For example, \verb|\cref{resp:3.2}| will output ``\cref{resp:3.2}''. To change the format of this output, use the commands provided in \verb|cleveref| to format labels with \verb|<type> = response|.
+
+
+
+Since the \texttt{hyperref} package is also included, the references to the other responses will automatically be hyperlinked in the pdf.
+
+\end{response}
+
+\begin{revcomment}
+Quisque mattis dolor mi, a tristique arcu porttitor ut. Donec id vehicula neque, id bibendum orci. Vivamus id lobortis libero. Aenean in arcu ac nisl ornare tempor. Pellentesque hendrerit luctus nisi, imperdiet pharetra lorem. Curabitur eu nisl sit amet nulla pulvinar condimentum sodales sed nunc. Ut euismod sem vel ipsum mollis, id viverra nisi rhoncus. Donec consectetur, urna nec viverra fermentum, lorem turpis tempor libero, eu blandit erat orci sed elit. Curabitur ac dolor eu mauris pellentesque tempor. Etiam non pulvinar enim, at rhoncus justo. Suspendisse quis efficitur eros.
+\end{revcomment}
+\begin{response}
+Proin venenatis, dolor nec ultrices blandit, tortor eros semper urna, in vulputate sem mi in felis. Etiam vitae mollis lacus. Phasellus vehicula dui velit, sit amet mollis mauris semper accumsan. Pellentesque at vestibulum tortor, eget cursus erat.
+\end{response}
+
+\nextreviewer
+\begin{revcomment}
+Nulla facilisi. Duis id sapien luctus, ornare lectus in, tristique augue. Praesent ullamcorper posuere rutrum. Maecenas cursus metus id ultricies cursus. In volutpat eleifend posuere. 
+\end{revcomment}
+\begin{response}
+Praesent elit tortor, porttitor vehicula libero nec, pharetra facilisis velit. Morbi accumsan ut enim ut ornare. Integer pharetra magna in urna aliquam sagittis. Aenean mollis leo a lorem aliquam posuere. Suspendisse massa justo, pretium quis dui mattis, sagittis volutpat dolor. Pellentesque et porttitor libero. Sed volutpat felis sed tellus accumsan pretium.
+
+Fusce lorem est, luctus nec tempus sed, tempor porta erat. Quisque et velit commodo, lacinia ante in, luctus neque. Curabitur ut consequat tortor. Aliquam ultrices enim tincidunt vehicula accumsan. Nunc nisi ante, porttitor scelerisque diam et, maximus facilisis mi. Etiam id mollis nibh, tristique mollis dui. Integer sit amet lobortis est. Aliquam consectetur in est vel mattis. Duis tristique in turpis et eleifend. Fusce et eros ut purus rhoncus euismod ac ac augue. Curabitur pharetra mi elit. Aliquam in malesuada dolor.
+\end{response}
+
+\nextreviewer
+\begin{revcomment}
+Cras vel velit ut diam iaculis dignissim et eget ligula. Vestibulum sollicitudin consequat justo vel lobortis. Etiam ut sodales sapien. Nulla nec tellus aliquam, auctor tortor nec, maximus dolor. Suspendisse augue nunc, ultricies ut convallis nec, fermentum viverra ipsum. Pellentesque id elit pellentesque, suscipit tellus eu, convallis risus. Quisque gravida ante egestas, tincidunt elit sit amet, semper eros. Cras tristique dolor vel lectus dictum, ultrices viverra velit egestas. Integer cursus lorem vitae magna gravida, in semper nibh porta. In pharetra aliquam euismod. Nullam efficitur, ante sit amet pulvinar posuere, urna arcu varius eros, sit amet congue nulla libero nec velit.
+
+Donec eu sem sit amet lectus tincidunt posuere. Suspendisse pulvinar, neque vel pellentesque consectetur, turpis ipsum gravida enim, lacinia ultrices est augue vitae turpis. Nullam ex turpis, venenatis egestas urna a, dignissim aliquet nibh. Phasellus bibendum lectus in mattis lacinia. Curabitur rhoncus arcu sit amet erat gravida, id dignissim neque consectetur. Quisque tincidunt at nisi id volutpat. Vestibulum condimentum ex sem. Ut massa turpis, porta sit amet dolor sed, semper commodo tortor. Vivamus et tortor dictum risus tempus sagittis non ut orci. Sed facilisis viverra tempor. Donec iaculis pharetra pharetra. Quisque quam ex, tincidunt ut felis sed, scelerisque feugiat magna. Maecenas ipsum nisl, volutpat et suscipit in, egestas a lorem. Praesent pellentesque vitae dui dignissim lobortis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
+\end{revcomment}
+\begin{response}
+Vivamus tincidunt enim malesuada, vestibulum massa quis, vehicula orci. Suspendisse ac nunc dui. Integer lobortis cursus nisl eu placerat. Vivamus dapibus vitae purus quis maximus. Sed eu mauris in nulla hendrerit volutpat. Aliquam enim nisi, placerat et justo in, pulvinar sagittis sem
+\end{response}
+
+\begin{revcomment}
+Sed blandit, felis eget sodales viverra, nisl enim aliquet nunc, ac convallis ex neque eget augue.
+\end{revcomment}
+\begin{response}
+Proin lacinia gravida malesuada. Fusce laoreet interdum felis placerat accumsan. Mauris fringilla tristique massa quis molestie. Pellentesque ipsum orci, congue vitae lacus nec, congue vehicula quam. Maecenas non viverra nisl. Nullam ut fringilla nunc. Quisque feugiat condimentum odio eu aliquam. Integer gravida, purus et tincidunt fringilla, ante turpis aliquam lectus, ut volutpat tellus tellus quis lorem. Fusce fermentum justo sed bibendum pulvinar. Donec vel aliquam nibh. Etiam vel pretium massa. Aliquam malesuada hendrerit urna, et rhoncus quam facilisis eget.
+\end{response}
+
+\makerule
+
+\section*{Postscript}
+Aliquam elementum rutrum velit, a interdum dui rutrum nec. Phasellus id libero ac arcu viverra vulputate at in tortor. Sed non ex sed ante semper viverra. Etiam congue malesuada massa, id dignissim tellus iaculis vitae. Curabitur ultrices mollis mauris, eu lobortis libero consectetur non. Sed eleifend volutpat odio, et elementum est tristique non. Etiam eu sodales elit. Cras quis est nulla.
+
+Vestibulum eget aliquet nisi. Suspendisse massa est, maximus in interdum ac, tempus vel eros. In in ligula in lorem malesuada faucibus et a lacus. Nullam maximus dignissim euismod. Morbi iaculis sem leo, eu interdum erat euismod a. Integer in lorem sed nisl maximus tristique. Aliquam eu malesuada magna, at consectetur justo. Mauris pretium, erat ut mattis tempus, ex sapien fermentum tellus, eu sagittis mauris felis et elit. Morbi pretium pulvinar dui, ut tincidunt magna gravida et.
+
+Nunc facilisis orci vel urna ultrices porttitor quis at ligula. Mauris at ultrices nunc. In eu mi quis augue ultricies suscipit vitae ut lorem. Donec faucibus lectus id quam cursus efficitur. Nam consectetur turpis eget nibh volutpat suscipit et sit amet odio. Donec faucibus odio non turpis auctor, et convallis ligula dictum. Nunc facilisis mauris luctus, aliquam quam ac, facilisis arcu. Sed rhoncus rhoncus auctor. Duis enim mi, finibus a scelerisque id, maximus vitae nisl. Donec ut neque sit amet libero vehicula iaculis. Nunc magna est, ornare at orci sed, blandit dapibus massa. Maecenas convallis ultrices consequat. In tincidunt lacus ex, ac ullamcorper metus accumsan tincidunt.
+
+\end{document}
+
