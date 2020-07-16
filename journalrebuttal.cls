@@ -10,12 +10,12 @@
 % version 2005/12/01 or later.
 %
 % This work has the LPPL maintenance status `maintained'.
-% 
+%
 % The Current Maintainer of this work is Pranav Hosangadi.
 %
 % This work consists of the file journalrebuttal.cls and the demo
 % file journalrebuttal.tex
-%% 
+%%
 %%
 %% journalrebuttal.cls
 %% A LaTeX class to create rebuttal documents for journal
@@ -24,6 +24,15 @@
 %% Author: Pranav Hosangadi (pranav.hosangadi@gmail.com)
 %% https://github.com/pranavh/JournalRebuttal_LaTeX
 %% Last Modified: 2020-06-29
+%% Version: 1.0
+%%
+%% journalrebuttal.cls
+%% A LaTeX class to create rebuttal documents for journal
+%% reviews
+%% Created: 2020-06-28
+%% Author: Pranav Hosangadi (pranav.hosangadi@gmail.com)
+%% https://github.com/pranavh/JournalRebuttal_LaTeX
+%% Last Modified: 2020-06-28
 %% Version: 1.0
 %%
 \NeedsTeXFormat{LaTeX2e}
@@ -50,7 +59,7 @@
 \RequirePackage{epsfig}
 \RequirePackage{graphicx}
 \RequirePackage{float}
-\RequirePackage{subfigure}
+\RequirePackage{subcaption}
 \RequirePackage{overcite}
 \RequirePackage{psfrag}
 \RequirePackage{ifthen}
